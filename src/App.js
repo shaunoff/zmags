@@ -55,14 +55,11 @@ class App extends Component {
 			);
 			//sort data by score
 			items.sort((a, b) => a.score - b.score);
-			setTimeout(() => this.setState({ stories: items, loading: false }), 200);
+			setTimeout(() => this.setState({ stories: items, loading: false }), 250);
 		} catch (error) {
 			this.setState({ error: error.message });
 		}
 	}
-	// shouldComponentUpdate(nextProps, nextState){
-	//   return this.state.stories.length !== nextState.stories.length
-	// }
 	componentDidMount() {
 		this.fetchData();
 	}
@@ -73,7 +70,7 @@ class App extends Component {
 			<div>
         <Button icon="download" style={{margin: '15px'}} onClick={this.fetchData}>Refresh</Button>
         {loading ? (
-          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '572px'}}>ghjjhjh</div>
+          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '572px'}}>...loading</div>
         ) : (
           <Table>
   					<Table.Header>
